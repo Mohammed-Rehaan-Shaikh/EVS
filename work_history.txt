@@ -46,3 +46,9 @@
     - Removed active state toggling and cursor-pointer from narrative blocks.  
     - Reduced vertical spacing between narrative insights to suit a static report layout. 
 2026-09-29 11:58 PM - Created index.html by copying evs_research_app.html to enable GitHub Pages access. 
+2026-09-30 12:00 PM - UI/UX Polishing and Fixes:  
+    - Fixed Hero section overlap by adding pt-20 padding to prevent navigation bar collision.  
+    - Corrected narrative step styles: removed low opacity and translation to make insights clearly visible.  
+    - Updated Chart.js hover behavior: bars now retain their original color on hover with a white border, creating a polished glowing effect.  
+    - Fixed broken image link for Enghaveparken with a verified high-quality urban park asset.  
+    - Synchronized changes to index.html for GitHub Pages. 
