@@ -45,3 +45,4 @@
     - Implemented professional hover-based interactivity for Chart.js (custom tooltips, hover states, and interaction modes).  
     - Removed active state toggling and cursor-pointer from narrative blocks.  
     - Reduced vertical spacing between narrative insights to suit a static report layout. 
+2026-09-29 11:58 PM - Created index.html by copying evs_research_app.html to enable GitHub Pages access. 
