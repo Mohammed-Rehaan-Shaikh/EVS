@@ -40,15 +40,31 @@
     - Refined Scrollytelling: Increased vertical gap to space-y-64 and adjusted IntersectionObserver threshold to 0.7 for absolute precision in data transition.
     - Updated visual encoding: used "Insight" labels and a more aggressive Blue-Green gradient for the "Sponge Metropolis" concept.
     - Aligned all project timing to Indian Standard Time (11:45 PM) for consistency.
-2026-09-29 11:55 PM - Removed scrollytelling effect from Financials section:  
-    - Replaced IntersectionObserver-driven chart updates with immediate full-dataset rendering.  
-    - Implemented professional hover-based interactivity for Chart.js (custom tooltips, hover states, and interaction modes).  
-    - Removed active state toggling and cursor-pointer from narrative blocks.  
-    - Reduced vertical spacing between narrative insights to suit a static report layout. 
-2026-09-29 11:58 PM - Created index.html by copying evs_research_app.html to enable GitHub Pages access. 
-2026-09-30 12:00 PM - UI/UX Polishing and Fixes:  
-    - Fixed Hero section overlap by adding pt-20 padding to prevent navigation bar collision.  
-    - Corrected narrative step styles: removed low opacity and translation to make insights clearly visible.  
-    - Updated Chart.js hover behavior: bars now retain their original color on hover with a white border, creating a polished glowing effect.  
-    - Fixed broken image link for Enghaveparken with a verified high-quality urban park asset.  
-    - Synchronized changes to index.html for GitHub Pages. 
+2026-09-29 11:55 PM - Removed scrollytelling effect from Financials section:
+    - Replaced IntersectionObserver-driven chart updates with immediate full-dataset rendering.
+    - Implemented professional hover-based interactivity for Chart.js (custom tooltips, hover states, and interaction modes).
+    - Removed active state toggling and cursor-pointer from narrative blocks.
+    - Reduced vertical spacing between narrative insights to suit a static report layout.
+2026-09-29 11:58 PM - Created index.html by copying evs_research_app.html to enable GitHub Pages access.
+2026-09-30 12:00 PM - UI/UX Polishing and Fixes:
+    - Fixed Hero section overlap by adding pt-20 padding to prevent navigation bar collision.
+    - Corrected narrative step styles: removed low opacity and translation to make insights clearly visible.
+    - Updated Chart.js hover behavior: bars now retain their original color on hover with a white border, creating a polished glowing effect.
+    - Fixed broken image link for Enghaveparken with a verified high-quality urban park asset.
+    - Synchronized changes to index.html for GitHub Pages.
+2026-09-30 07:10 PM - Redesigned Copenhagen_Cloudburst_Management_Plan - Copy.html:
+    - Aligned the page design and content with the updated QWEN.md standards for DataOps and MLOps.
+    - Implemented a high-end "Midnight Luxe" aesthetic using Plus Jakarta Sans and Playfair Display.
+    - Integrated a dedicated DataOps Pipeline visualization and an MLOps Framework section.
+    - Added structural elements reflecting the capstone requirements: Data Source, Ingestion, Validation, and Monitoring.
+    - Enhanced the UI with a global progress bar, ambient glows, and a responsive grid layout.
+2026-09-30 10:30 AM - Redesigned Copenhagen_Cloudburst_Management_Plan - Copy.html:
+    - Synchronized design and content with updated QWEN.md standards for DataOps and MLOps.
+    - Implemented 'Midnight Luxe' aesthetic with Plus Jakarta Sans and Playfair Display.
+    - Integrated DataOps Pipeline visualization and MLOps Framework section.
+    - Added structural elements for Data Source, Ingestion, Validation, and Monitoring to meet capstone requirements.
+    - Enhanced UI with global progress bar, ambient glows, and responsive grid layout.
+
+2026-09-30 07:30 PM - Updated 'Copenhagen_Cloudburst_Management_Plan - Copy.html' and 'work_history.txt' to align with latest QWEN.md standards for DataOps and MLOps.
+
+2026-09-30 08:00 PM - Deep-updated 'Copenhagen_Cloudburst_Management_Plan - Copy.html' with specific DataOps/MLOps technical terminology (MLflow hyperparameters, ground-truth validation, and production inference paths) to strictly mirror QWEN.md requirements.

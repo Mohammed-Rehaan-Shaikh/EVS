@@ -1,141 +1,925 @@
-# Case Study: Copenhagen's Cloudburst Management Plan (Updated 2026)
-## Environmental Studies (EVS) Master Research Document
+# QWEN.md
 
-**Abstract:** 
-This document serves as the master data repository and script for the Copenhagen Cloudburst Management Plan EVS application. It contains verified datasets, timeline events, infrastructure metrics, socio-economic analyses (including 2026 equity data), and an interactive JavaScript charting script.
+## HCL GUVI × JAIN UNIVERSITY --- DataOps & MLOps Capstone
 
----
+### Purpose
 
-## 1. The Catalyst (The 2011 Event)
-* **Date:** July 2, 2011
-* **Event:** Massive "cloudburst" (Danish: *Skybrud*) 
-* **Precipitation:** 150 millimeters (approx. 6 inches) of rain in under 2 hours.
-* **Impact:** 
-  * Overwhelmed municipal combined sewer network (designed for 10-year return periods).
-  * Flooded cellars, roads, and critical infrastructure.
-  * Halted emergency services.
-* **Financial Toll:** Insurance claims and municipal damages exceeded **DKK 6 billion** (roughly €1 billion).
+This repository is for the **HCL GUVI × JAIN University DataOps & MLOps
+Capstone Project**.
 
----
+The objective is to build a **working, explainable, end-to-end DataOps +
+MLOps solution** for the project assigned to the group.
 
-## 2. Strategic Overview: "Surface First"
-* **Objective:** Manage a 100-year storm event while restricting surface water accumulation to a maximum depth of **10 centimeters** to prevent property damage.
-* **Methodology:** Shift from subterranean "gray" infrastructure (expanding sewer pipes) to "blue-green" surface infrastructure.
-* **Implementation Scale:** ~300 surface projects distributed across 7 main water catchment areas over a 20-year timeline.
-* **Core Mechanisms:** 
-  1. **Retain:** Holding water in parks and squares.
-  2. **Delay:** Slowing water flow via green roofs and rain gardens.
-  3. **Drain:** Guiding water safely to the harbor via transformed roads (cloudburst boulevards).
+Every student must make a real technical contribution and be able to
+explain: - Their own implementation. - The overall project workflow. -
+The technical decisions made in the project. - The results produced by
+the system.
 
----
+The capstone should prioritize **implementation, integration, results,
+reproducibility, and technical understanding**, not only presentation.
 
-## 3. Macro-Economic Datasets (Cost-Benefit Analysis)
-According to the official Copenhagen Climate Adaptation Plan documentation (100-year projection):
+------------------------------------------------------------------------
 
-| Scenario | Estimated Cost | Description |
-| :--- | :--- | :--- |
-| **Inaction (Do Nothing)** | DKK 16 Billion | Estimated damages over 100 years. |
-| **Gray Infrastructure** | DKK 20 Billion | Expanding traditional underground sewer pipes. High disruption, zero ecological co-benefits. |
-| **Blue-Green Plan** | DKK 11 Billion | The chosen path. Cheaper, increases biodiversity, reduces urban heat. |
+## 1. Source of Requirements
 
----
+The authoritative project requirements come from:
 
-## 4. Key Infrastructure Profiles
+**HCL GUVI × JAIN UNIVERSITY --- DATAOPS & MLOPS CAPSTONE PROJECT ---
+Student Guide**
 
-### A. Enghaveparken (The Historic Sponge)
-* **Completion:** 2019
-* **Function:** A 1920s neoclassical park transformed into a massive retention basin.
-* **Capacity:** Capable of holding **22,600 cubic meters** (approx. 6 million gallons) of rainwater.
-* **Co-benefits:** Features a skate park, sports courts, and historic gardens during dry weather.
+The guide describes: - The capstone objective. - The practical
+environment. - The common end-to-end architecture. - Group project
+topics. - Student responsibilities. - Minimum technical requirements. -
+One-week development plan. - Final presentation requirements. -
+Evaluation criteria. - Technical questions students should be prepared
+to answer. - Final submission checklist. - Team rules and important
+dates.
 
-### B. Sankt Kjelds Square (The Climate Neighborhood)
-* **Architects:** SLA Architects
-* **Transformation:** Replaced 35,000 m² of asphalt with natural landscapes.
-* **Flora:** Over 586 native trees planted forming rain gardens.
-* **Impact:** Processes 30% of rainwater on the surface, reduces local urban heat island effect by 2-3°C, and boosted local property values by 10-15%.
+Do not claim an implementation as complete unless it actually exists and
+can be demonstrated.
 
----
+------------------------------------------------------------------------
 
-## 5. 2026 Socio-Economic Reality Check (Equity Challenges)
-*While hydraulically successful, recent 2026 data highlights unintended socioeconomic consequences.*
+## 2. Core Project Objective
 
-* **The Problem:** The Plan mandates that interventions on private property (to connect stormwater to new utility pipes) must be funded by property owners.
-* **Case Study - Hørgården (Not-for-profit housing):**
-  * Required debt financing for sewer separation: **DKK 29.3 million**.
-  * Resulting rent increase for vulnerable residents: **4% to 6%**.
-* **Academic Insight:** A 2026 *PNAS* study coined this phenomenon **"Ecological Segregation,"** warning that if financial governance is not aligned with technical planning, climate adaptation exacerbates urban inequality.
+Build an end-to-end machine-learning system covering the relevant stages
+from data to prediction and operational monitoring.
 
----
+The expected workflow is:
 
-## 6. Verified Sources & Citations
-1. **Københavns Kommune (Copenhagen Municipality):** *Climate Change Adaptation and Investment Statement (Cloudburst Management Plan)*.
-2. **PNAS (2026):** *"Housing tenure, climate resilience, and ecological segregation"*. (Data on Hørgården debt financing and rent increases).
-3. **TransformAr EU Project (June 2025):** *Bankability Reports (WP5-D5.5)*. (Details on regulatory changes for water tariffs in Denmark).
-4. **ASLA (American Society of Landscape Architects):** *The Copenhagen Cloudburst Formula*.
+``` text
+DATA SOURCE
+    ↓
+DATA INGESTION
+    ↓
+DATA VALIDATION / QUALITY
+    ↓
+TRANSFORMATION / FEATURE ENGINEERING
+    ↓
+MODEL TRAINING
+    ↓
+MLFLOW EXPERIMENT TRACKING
+    ↓
+MODEL VALIDATION
+    ↓
+INFERENCE / DEPLOYMENT
+    ↓
+MONITORING
+```
 
----
+Apache Airflow should orchestrate relevant workflow steps.
 
-## 7. Interactive Dashboard Script
-*Use this HTML/JS snippet in your EVS app to render the interactive Cost-Benefit chart using Chart.js.*
+Git/GitHub should be used for version control and reproducibility.
 
-```html
-<!-- Interactive Visualization Script -->
-<div style="width: 100%; max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    <h3 style="font-family: sans-serif; color: #1e293b;">Economic Cost-Benefit Analysis (100-Year Projection)</h3>
-    <canvas id="copenhagenChart" width="400" height="250"></canvas>
-</div>
+Prometheus and Grafana should be used for appropriate
+operational/application monitoring.
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('copenhagenChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Inaction (Damages)', 'Traditional Gray Pipes', 'Blue-Green Masterplan'],
-            datasets: [{
-                label: 'Cost in Billion DKK',
-                data: [16, 20, 11],
-                backgroundColor: [
-                    'rgba(239, 68, 68, 0.8)',   // Red
-                    'rgba(100, 116, 139, 0.8)', // Gray
-                    'rgba(14, 165, 233, 0.8)'   // Blue
-                ],
-                borderColor: [
-                    'rgb(220, 38, 38)',
-                    'rgb(71, 85, 105)',
-                    'rgb(2, 132, 199)'
-                ],
-                borderWidth: 1,
-                borderRadius: 6
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: { display: true, text: 'Billion DKK' }
-                }
-            },
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) { return context.parsed.y + ' Billion DKK'; }
-                    }
-                }
-            }
-        }
-    });
-});
-</script>
+------------------------------------------------------------------------
 
-Copenhagen Cloudburst Management Plan (CMP) Data Dashboard1. Interactive Exploration ChecklistUse this checklist to track your research verification and data exploration:[ ] Context: Verify the meteorological data and financial damages of the 2011 cloudburst.[ ] Infrastructure: Map the 7 hydrological catchments and the balance of blue-green vs. grey projects.[ ] Economics: Analyze the co-financing distribution model (HOFOR vs. Municipality).[ ] Impact: Evaluate the socio-economic return on investment (ROI) and environmental co-benefits.[ ] Equity: Assess the spatial inequality and rent increase data in marginalized neighborhoods.2. Core Case Study Data2.1 The Catalyst and Financial ScopeThe primary catalyst for the CMP was the July 2011 cloudburst, which dumped 150 millimeters of rain on Copenhagen in under two hours, accounting for 14 percent of the city's mean annual precipitation. This event caused 1 billion USD (approximately 6 billion DKK) in direct damages. To prevent future catastrophic flooding, the city initiated a master plan requiring an estimated total investment of 1.9 billion EUR, or roughly 11 billion DKK.   To fund this, the city developed a strict co-financing model. The regional utility company, HOFOR, covers 58 percent of the total estimated cost via water tariffs to finance underground pipes and the hydraulic functions of surface projects. The municipality covers 10.5 percent using public tax revenue for aesthetic and recreational enhancements, while private landowners finance the remaining adaptations on their own properties.   2.2 Project Infrastructure and 2026 StatusThe city was divided into seven distinct hydrological catchments to map the natural gravitational flow of surface water. The resulting portfolio consists of over 300 specific interventions, heavily prioritizing surface-based blue-green infrastructure alongside massive subterranean tunnels. By 2023, the city had completed dozens of these interventions, including 19 major surface projects and several pipe systems. A major milestone was achieved in early 2026 with the successful operational launch of the 1.3-kilometer Kalvebod Brygge Cloudburst Tunnel, which serves as a critical underground failsafe for the surface networks of Frederiksberg and Vesterbro. On the surface, retrofitted spaces like Enghaveparken now provide 22,600 cubic meters of extreme rainwater retention capacity.   2.3 Quantitative Ecological and Economic OutcomesThe transition to nature-based solutions has generated highly favorable economic returns, with econometric evaluations showing that every 1 EUR invested in blue-green infrastructure yields 2.50 EUR in socio-economic benefits. The systemic integration of vegetation and bio-retention has also dramatically altered the urban microclimate, resulting in a 10 percent reduction in local air pollution, a 30 percent increase in urban biodiversity, and localized cooling of 2 to 3°C to mitigate the Urban Heat Island (UHI) effect.   2.4 Socio-Spatial InequityDespite the systemic hydraulic success, the plan's financing mechanisms have exacerbated urban inequity and green gentrification. Spatial sociology research highlights that low-income and non-Western immigrant populations are disproportionately clustered in not-for-profit multistory housing, which bears a heavy financial burden for mandated private-property adaptations. In the Hørgården housing estate, the mandated cloudburst adaptations forced housing associations to take out commercial loans, resulting in a regressive 22 percent increase in monthly rents for vulnerable tenants.   3. Interactive Dataset Reference (SDG Integration)Researchers evaluate the broader sustainability of the CMP by mapping its infrastructure outcomes directly against the UN Sustainable Development Goals (SDGs) and lifecycle assessment data.   SDG 15.1.2 (Biodiversity): Tracked using the Biotope Area Factor (BAF) to measure the abundance and quality of inhabitable surfaces established by the new cloudburst parks.   SDG 12.2.1 (Material Footprint): Evaluated by calculating the carbon footprint of materials used in surface-level construction compared to the heavy cement requirements of traditional underground sewer expansions.   4. Key Performance Indicators (KPIs)The system is designed around a strict set of hydraulic and operational benchmarks. The plan legally mandates a maximum flood target of 10 centimeters above ground level during a 100-year storm event. To reach full resilience, the municipality aims to complete all planned interventions by the target year of 2035, maintaining an implementation rate of approximately 15 projects annually.   MetricTarget / ValueMax Permitted Surface Flooding10 cm above ground levelMaster Plan Total Projects>300 interventionsAnnual Implementation Rate~15 projects annuallyFull Operational Target Date2035
+## 3. Practical Environment
 
-## 8. Design
-Architecting the Next-Generation Interactive Annual Report: UI/UX Principles, Scrollytelling Frameworks, and Prompt Engineering for Qwen3-CoderThe digital annual report has evolved from a static, paginated document into a highly dynamic, data-driven narrative experience. Modern corporate reporting leverages advanced interactivity to transform passive reading into active exploration, driving higher engagement, improved information retention, and extended dwell times. Achieving this requires a sophisticated orchestration of user experience (UX) design, high-performance web APIs, accessible data visualization, and compelling narrative structures.With the advent of advanced Large Language Models (LLMs) like Qwen3-Coder—which boasts a 256,000-token context window and exceptional proficiency in generating self-contained, single-file web applications—the rapid prototyping and deployment of these complex interactive reports have become highly streamlined. The objective of this comprehensive analysis is to deconstruct best-in-class interactive reporting paradigms, select the optimal architectural template, and formulate a meticulously engineered prompt that instructs Qwen3-Coder to generate a robust, accessible, and performant interactive annual report.The Evolution of UI/UX Design in Interactive ReportingAn analysis of award-winning digital reports—ranging from Awwwards-recognized corporate microsites to data journalism masterpieces by organizations such as The New York Times and The Pudding—reveals that successful interactive design prioritizes narrative clarity over gratuitous technological spectacle. The foundational principle of these experiences is that technology must serve the story; interactive elements should act as progressive disclosure mechanisms that maintain curiosity without overwhelming the user's cognitive load.Digital report templates and interactive interfaces must seamlessly blend aesthetic appeal with functional design to solve user problems while maintaining engagement. The interface controls should be intuitive, allowing the user to navigate the environment without the need for prior explanation. In many successful User Interface (UI) web designs, elements imitate physical or mechanical actions, such as turning a dial, folding a map, or pressing physical buttons, which grounds the digital experience in familiar tactile interactions.Before any code is written or layout defined, a strong, central storyline must be established to connect disparate data points. Reports lacking a cohesive narrative often devolve into visually chaotic data dumps. Award-winning examples, such as MailChimp’s 2020 Annual Report or Conservation International’s "Not a Moment to Lose" report, anchor their complex data visualizations to a singular thematic thesis. This compelling storyline lends structure to the report, dictating which metrics deserve the spotlight and what kind of interactivity makes the most sense.The 4U Value Chain in Data NarrativesThe efficacy of interactive reports can be evaluated using the 4U Reports framework, a user-centered UX design methodology that models the stakeholder's journey from initial engagement to actionable comprehension. This framework posits that a report only creates value when it is opened, explored, understood, and acted upon. The progression follows a specific chain of user responses triggered by deliberate design choices.StageUX PrincipleUser Experience (4i)Implementation and Mechanism in Web Design01Unique (Attention)InspiringThe most critical insight is visible within three seconds. Layout, size, and color establish an immediate visual hierarchy, earning the user's attention before any interaction occurs.02User-friendly (Invitation)IntuitiveInteraction mechanisms are self-evident. Users require no manual or onboarding to understand that clicking a specific bar chart segment will filter the surrounding textual context.03Uncovering (Exploration)InteractiveUsers dictate the pace. Clicking a visual triggers a drill-down effect, revealing a deeper layer of contextual data and updating the whole page without forcing the user to rebuild manual filters.04Understandable (Comprehension)InsightfulData is framed by narrative context. Cross-chart formatting outlines the insight, revealing the "why" behind the data, thereby enabling stakeholders to make informed decisions.Visual Hierarchy and Cognitive Load ManagementVisual hierarchy in web design is the systematic organization of text, imagery, and interactive components to guide the user's eye naturally through a narrative flow. Because modern web users scan rather than read line-by-line, the strategic use of scale, color contrast, and negative space is critical for retaining attention and reducing cognitive load.Designers must leverage the Z-pattern or F-pattern layouts, which mimic the natural scanning behaviors of users on digital screens, positioning primary data visualizations where the eye naturally rests. Contrast equates to clarity; using color wisely to highlight call-to-action elements while keeping related items grouped together ensures that the user understands the relationships between different datasets without explicit instruction. Simplicity in layout lowers cognitive load, streamlines navigation, and enhances the overall professional appearance of the report. Achieving a highly professional and "classy" aesthetic relies on what design experts term "Minimalist Authority." This involves using expansive negative space and massive, elegant typography to command attention instantly, ensuring the report looks expensive, modern, and uncluttered.Scrollytelling as the Premier Narrative ArchitectureAmong the various interactive methodologies available for web development, "scrollytelling" has emerged as the definitive template for high-density data reports. Scrollytelling utilizes scroll-triggered events to manipulate visual assets, transition states, or reveal text, thereby turning the fundamental act of scrolling into a narrative engine. The format shifts the experience from passive reading to an interactive journey where the user controls the pace of information delivery.The success of data journalism pieces by The Pudding and The New York Times (such as the seminal "Snow Fall") cemented scrollytelling as the gold standard for visual storytelling. Scrollytelling demands a linear progression with clear narrative beats, unlike hierarchical web content, ensuring that every scroll-triggered effect serves the narrative rather than acting as a gratuitous distraction.Deconstructing Scrollytelling Layout PatternsResearch analyzing top-tier scrollytelling implementations identifies several standard techniques that dictate how data and text interact on the screen. Understanding these patterns is essential for selecting the optimal template for a corporate annual report.Scrollytelling PatternMechanism and DescriptionOptimal Use Case in ReportingGraphic SequenceDiscrete visuals change completely at specific scroll thresholds.Step-by-step explanations of complex data structures or year-over-year categorical changes.Animated TransitionSmooth morphing between states within a single graphic.Showcasing evolution over time, such as revenue growth trajectories or demographic shifts.Pan and ZoomThe scroll action controls which portion of a large visual is visible.Spatial narratives, interactive geographic maps, or high-density organizational charts.MoviescrollerFrame-by-frame progression creating video-like effects based on scroll depth.Product showcases, 3D object reveals, or highly immersive brand storytelling.Layered ParallaxMultiple visual layers move at different speeds to create a perception of depth.Atmospheric storytelling, though it must be used sparingly due to accessibility concerns regarding vestibular disorders.The Selection of the "Side-by-Side Sticky" TemplateFor an interactive annual report that must balance heavy data visualization with explanatory text, the Side-by-Side Sticky pattern is universally recognized as the most effective, accessible, and common layout. In this architectural pattern, a large graphic (typically a chart, map, or data visualization) occupies one side of the viewport and becomes "stuck" in place, while narrative text blocks scroll alongside it in the adjacent column.As new text blocks enter the viewport, they trigger state changes in the sticky graphic—such as updating chart data, highlighting specific bars, or zooming into a map coordinate. This pattern is superior for annual reports because it provides persistent visual context, prevents user disorientation, and degrades gracefully on mobile devices, where the layout typically shifts to stack the sticky graphic at the top of the screen while the text scrolls vertically beneath it.Performance Optimization and the DOM ThreadA historical flaw in early scrollytelling architecture was the reliance on JavaScript scroll event listeners. Attaching animations and state calculations directly to the window's scroll event floods the browser's main execution thread, leading to Document Object Model (DOM) thrashing, layout shifts, and severe performance degradation known as "jank". When functions fire hundreds of times per second as a user scrolls, the browser struggles to paint frames smoothly, resulting in a fractured user experience. High performance is not merely a technical vanity metric; it directly impacts Search Engine Optimization (SEO) through reduced bounce rates and increased dwell times.Modern, best-in-class scrollytelling relies exclusively on the native IntersectionObserver API. This modern browser API asynchronously observes changes in the intersection of a target element with an ancestor element or the top-level document's viewport. By offloading intersection calculations from the main thread, the browser is free to optimize rendering, ensuring smooth 60-frames-per-second scrolling. By configuring IntersectionObserver to detect when specific narrative text blocks cross a defined threshold in the viewport, the application can trigger chart updates efficiently and seamlessly without the overhead of continuous scroll monitoring.Data Visualization Engineering with Chart.jsTo render the interactive graphics within the sticky container, developers must select a charting library that balances visual fidelity, animation capabilities, and ease of deployment. Chart.js remains one of the most widely adopted, performant, and flexible JavaScript charting libraries available. It is particularly suited for AI-generated single-file architectures because it can be imported effortlessly via Content Delivery Networks (CDNs) like cdnjs or jsDelivr, bypassing the need for complex Node.js build steps or package bundlers like Webpack or Parcel.Chart.js relies on the HTML5 <canvas> element to render its charts. The library supports a wide array of chart types—including bar, line, and pie charts—and allows for deep customization of datasets, colors, and responsive behaviors through a straightforward JSON configuration object passed during instantiation. When combined with the IntersectionObserver API, Chart.js becomes highly dynamic; as users scroll to new narrative sections, JavaScript can seamlessly mutate the chart.data.datasets array and call the chart.update() method, creating smooth animated transitions between data states that reflect the evolving story.Strict Adherence to WCAG 2.2 Accessibility StandardsPublic-facing corporate and institutional reports must adhere to strict accessibility standards, specifically the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA. Data visualizations present unique accessibility challenges because they rely inherently on visual cognition, risking the exclusion of users with visual impairments, cognitive disabilities, or motor limitations. Creating an inclusive interactive report requires addressing color contrast, keyboard navigability, and screen reader compatibility at the architectural level.Visual Encoding and Contrast RequirementsColor must never be the sole method of communicating data or meaning. While a categorical palette might use distinct colors for different revenue streams, these lines or bars must also be differentiated by pattern, texture, line style (e.g., dashed vs. solid), or direct labeling adjacent to the data points. WCAG 2.2 requires that text and interactive data markers maintain a minimum contrast ratio of 4.5:1 against their backgrounds. A rigorous and effective test for visual accessibility is to view the report entirely in grayscale; if the data trends and categories are indistinguishable without color, the visual encoding is insufficient and must be revised.The Accessibility Divide: Canvas versus SVGWhen implementing charts in a web environment, the underlying rendering technology drastically impacts accessibility. The choice between HTML5 <canvas> (used by Chart.js) and Scalable Vector Graphics (<svg>) dictates how assistive technologies interact with the data.TechnologyAccessibility CharacteristicsDOM Integration and Screen Reader SupportSVGHighly accessible natively.Elements exist within the DOM, conveying semantic meaning. Technologies can navigate through SVG nodes. SVG charts can be enriched using the ARIA Graphics Module, applying roles like graphics-document to the root, and graphics-symbol for individual data points.CanvasInherently inaccessible without robust fallbacks.Renders as a single opaque bitmap pixel area. It exposes zero semantic structure or sub-elements to the DOM, rendering the charts entirely invisible to screen readers.Despite the accessibility limitations of Canvas, the performance benefits and ease of CDN integration make Chart.js highly desirable for single-file interactive reports. To utilize Chart.js while maintaining WCAG 2.2 AA compliance, the interactive report must implement parallel accessible structures.This compliance is achieved by rendering a visually hidden, keyboard-navigable <table tabindex="0"> containing the exact dataset immediately following the canvas element. By exposing the container and removing arbitrary image roles, developers can ensure the semantic structure is maintained. Furthermore, dynamic ARIA live regions (aria-live="polite") must be utilized to announce chart updates triggered by the scrollytelling intersections, ensuring screen reader users are audibly informed when the data changes in response to their scroll position without trapping their keyboard focus.Leveraging Qwen3-Coder for Rapid DeploymentQwen3-Coder is an advanced, open-source Large Language Model developed by Alibaba Cloud, utilizing a sophisticated Mixture-of-Experts (MoE) architecture. It demonstrates exceptional capability in long-context coding tasks, natively supporting a context window of 256,000 tokens.For the purpose of generating an interactive annual report, Qwen3-Coder's primary strength lies in its ability to synthesize self-contained, zero-build-step web applications that perfectly execute complex structural logic. By instructing the model to generate a single HTML file that imports CSS styling (such as Tailwind CSS) and JavaScript libraries (such as Chart.js) via CDNs, the friction of setting up node modules, package managers, and bundlers is entirely eliminated. The model is highly capable of ingesting strict design constraints, enforcing the use of IntersectionObserver, and mandating accessibility fallbacks within a single, cohesive file output.The Master Prompt Formulation for Qwen3-CoderTo generate the optimal interactive annual report, Qwen3-Coder must be supplied with a prompt that acts as a comprehensive technical brief, leaving no architectural decisions to chance. The prompt must strictly define the persona, the structural constraints of the scrollytelling pattern, the data schema, the interaction logic, and the uncompromising accessibility mandates.Below is the definitive prompt engineered to guide Qwen3-Coder in generating a best-in-class, scrollytelling annual report based on the extensive research outlined above.[BEGIN PROMPT FOR QWEN3-CODER]System Persona:You are an elite UX/UI Engineer, Data Journalist, and Web Accessibility (WCAG 2.2) Expert. Your task is to generate a complete, production-ready, interactive Annual Report in a single HTML file. You will write the HTML, CSS, and vanilla JavaScript entirely within this single file, utilizing CDNs for external libraries. The code must be impeccably clean, modular, and heavily commented to explain the logic.Project Brief:Create an interactive "Year in Review" Annual Report utilizing the "Side-by-Side Sticky" scrollytelling design pattern. The report must guide the user through corporate performance data using narrative text that triggers dynamic chart updates as the user scrolls down the page.Design Constraints & UI/UX Principles:Typography & Styling: Use Tailwind CSS (via CDN: <script src="https://cdn.tailwindcss.com"></script>) for all styling. Implement a "Minimalist Authority" aesthetic. The design must look extremely classy, expensive, and highly professional. Use a sophisticated, muted color palette (e.g., deep slate or charcoal backgrounds with off-white text, elegant typography, and subtle accent colors for data highlights). Ensure all text meets the WCAG 2.2 4.5:1 minimum contrast ratio.Visual Hierarchy: Utilize massive, refined typography for key metrics (KPIs) and clear F-pattern scanning layouts for narrative blocks. Create a sense of rhythm and luxury using robust, abundant whitespace to prevent visual clutter and lower cognitive load.Layout Architecture (Side-by-Side Sticky):Create a main scrollytelling container.On desktop screens, split the view into two columns using CSS Grid or Flexbox.The left column must be a position: sticky container with top: 0 spanning 100vh. This will hold the Chart.js canvas.The right column will contain multiple min-h-screen narrative div blocks (referred to as "steps" or "triggers").On mobile screens, ensure the layout stacks gracefully, with the chart remaining sticky at the top of the viewport while text scrolls vertically beneath it.Technical Stack & Data Visualization:Charting Library: Import Chart.js via CDN (<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>).Data Schema: Hardcode a structured JSON object in the JavaScript section containing mock annual report data (e.g., Q1 to Q4 Revenue, User Growth, Sustainability Metrics across three distinct datasets).Chart Initialization: Initialize a single Chart.js instance in the sticky container. Configure it to be responsive and maintain its aspect ratio. Provide an initial state dataset.Performance & Interaction Logic (Critical Constraint):IntersectionObserver: DO NOT use window.addEventListener('scroll', ...) for the scrollytelling logic to avoid main-thread blocking.Implement the native IntersectionObserver API to monitor the narrative "step" blocks in the right column.Configure the observer so that when a specific narrative block intersects the center of the viewport (e.g., using rootMargin: "-50% 0px -50% 0px"), it extracts a data attribute (e.g., data-chart-state="q2-growth") from that block.Use this data attribute to trigger a JavaScript switch statement or function that dynamically mutates the Chart.js dataset (chart.data.datasets[0].data = newData; chart.update();), causing a smooth visual transition.Accessibility (WCAG 2.2 AA) Mandates:Because Chart.js uses HTML5 <canvas> (which is an opaque bitmap inaccessible to screen readers), you must include a visually hidden (sr-only Tailwind class) HTML <table> immediately following or adjacent to the canvas. This table must dynamically update via JavaScript to reflect the exact data currently displayed on the visual chart.Wrap the chart area in a div with the attribute aria-live="polite". When the IntersectionObserver updates the visual chart, inject a brief text summary of the new data into a visually hidden span within this live region so screen reader users are notified of the contextual change as they scroll.Ensure the hidden data table is fully keyboard navigable (tabindex="0").Do not rely solely on color to differentiate chart datasets; utilize Chart.js configuration options to add visual spacing, distinct border dashes, or high-contrast border colors.Output Generation:Output the complete HTML, CSS, and JS code within a single html  code block. Ensure the file is completely self-contained and ready to be saved as index.html and opened directly in any modern web browser with zero local build steps.[END PROMPT FOR QWEN3-CODER]Synthesizing the Future of Corporate ReportingThe transition from static corporate reporting to interactive scrollytelling represents a fundamental shift toward user-centric data communication. By embracing the Side-by-Side Sticky layout pattern, organizations can deliver dense financial and operational data without inducing cognitive fatigue in their stakeholders. Furthermore, ensuring that this interactivity is driven by highly optimized browser APIs like IntersectionObserver guarantees a frictionless experience that benefits both end-users and search engine indexing algorithms by eliminating rendering bottlenecks.Crucially, the aesthetic and technical execution of these reports must not come at the cost of inclusivity. Implementing rigorous WCAG 2.2 compliant structures—particularly addressing the inherent semantic limitations of HTML5 Canvas through hidden, dynamic data tables and ARIA live regions—ensures that the corporate narrative is fully accessible to all individuals. By utilizing the meticulously structured prompt provided, developers can harness the vast reasoning and self-contained code-generation capabilities of Qwen3-Coder to produce these advanced, accessible, and highly engaging digital reports at an unprecedented velocity, establishing a new paradigm for organizational transparency and stakeholder engagement.
+The capstone guide specifies the following environment:
 
-## 9. Create a work_history.txt and note all the changes that you've made, with time(Indian Time, 12 hour clock, AM and PM), date, leave one line noting the changes because it will be easy to read it
+  -----------------------------------------------------------------------
+  Component               Purpose                 Minimum Evidence
+  ----------------------- ----------------------- -----------------------
+  Jupyter                 Data analysis,          Working notebooks/code
+                          preprocessing, feature  
+                          engineering and ML      
 
-Note: Remember, only Use the HTML File, The file is already there inside the repo, Now Only make it interactive and make changes as you wish
+  Apache Airflow          Workflow orchestration  DAG + successful run
+                          and scheduling          
+
+  MLflow                  Experiment tracking and Run, parameters,
+                          model/artifact          metrics and
+                          management              model/artifact evidence
+
+  Docker                  Containerized           Relevant container
+                          environment / packaging evidence
+                          where required          
+
+  Prometheus              Metrics collection      Relevant
+                                                  project/application
+                                                  metrics
+
+  Grafana                 Monitoring              Meaningful
+                          visualization           dashboard/panels
+
+  Git/GitHub              Version control and     Repository with
+                          reproducibility         meaningful commits
+  -----------------------------------------------------------------------
+
+### Important environment rule
+
+Use only the URL and credentials assigned to the group.
+
+Do not share group credentials with other groups.
+
+------------------------------------------------------------------------
+
+## 4. Possible Group Projects
+
+The student guide defines 12 group scenarios:
+
+1.  Customer Churn Prediction --- Classification + DataOps + MLOps
+2.  Credit Card Fraud Detection --- Classification + monitoring
+3.  E-Commerce Sales Prediction --- Regression / forecasting + pipeline
+4.  Loan Default Prediction --- Classification + MLflow
+5.  Telecom Customer Retention --- Classification + workflow
+6.  Insurance Claim Prediction --- Classification + pipeline
+7.  Retail Demand Forecasting --- Forecasting + DataOps
+8.  Employee Attrition Prediction --- Classification + MLOps
+9.  Delivery Time Prediction --- Regression + inference
+10. Manufacturing Quality Prediction --- Classification + monitoring
+11. Food Delivery Order Cancellation Prediction --- Classification +
+    workflow + monitoring
+12. Student Exam Performance Prediction --- Classification + DataOps +
+    MLOps
+
+The assigned project must not be changed without trainer approval.
+
+------------------------------------------------------------------------
+
+## 5. Five Student Responsibility Areas
+
+Each student should have an identifiable technical contribution.
+
+### Responsibility 1 --- Data Ingestion
+
+Expected work: - Obtain the project dataset. - Implement ingestion. -
+Handle the source appropriately. - Handle files, APIs, or databases as
+applicable.
+
+The student should be able to explain: - Where the data came from. - How
+it is ingested. - What ingestion method is used. - How
+files/API/database inputs are handled.
+
+### Responsibility 2 --- Data Quality + Transformation
+
+Expected work: - Data validation. - Data cleaning. - Data
+transformation. - Feature engineering.
+
+The student should be able to explain: - What quality problems were
+identified. - How those problems were handled. - Which transformations
+were applied. - Which features were created. - Why the selected
+transformations/features are relevant.
+
+### Responsibility 3 --- ML + MLflow
+
+Expected work: - Select and train an appropriate ML model. - Evaluate
+the model. - Track experiments using MLflow. - Store relevant artifacts.
+
+The student should be able to explain: - Why the model was selected. -
+Which parameters were used. - Which metrics were measured. - What the
+metrics mean. - How the experiment was tracked in MLflow. - What
+model/artifacts were stored.
+
+### Responsibility 4 --- Airflow + Inference/Deployment
+
+Expected work: - Create the Airflow DAG. - Define workflow tasks and
+dependencies. - Run the workflow successfully. - Implement the
+prediction/inference path. - Implement deployment/API components where
+appropriate.
+
+The student should be able to explain: - What each DAG task does. - Task
+dependencies. - What happens if an Airflow task fails. - How data moves
+through the prediction path. - How an input reaches the model and
+produces a prediction.
+
+### Responsibility 5 --- Monitoring + Integration + Documentation
+
+Expected work: - Integrate the components. - Collect relevant metrics. -
+Build Prometheus/Grafana monitoring. - Document the project in the
+README.
+
+The student should be able to explain: - What metrics are monitored. -
+What the Grafana dashboard shows. - How the components are integrated. -
+How the end-to-end workflow operates.
+
+------------------------------------------------------------------------
+
+## 6. Mandatory Technical Requirements
+
+The final project should include evidence for all applicable
+requirements:
+
+-   [ ] Problem statement.
+-   [ ] Business objective.
+-   [ ] ML target.
+-   [ ] Dataset description.
+-   [ ] Important features.
+-   [ ] Data ingestion implementation.
+-   [ ] Data-quality / validation implementation.
+-   [ ] Data transformation.
+-   [ ] Feature engineering.
+-   [ ] At least one appropriate ML model.
+-   [ ] Suitable model metrics.
+-   [ ] MLflow experiment tracking.
+-   [ ] MLflow parameters.
+-   [ ] MLflow metrics.
+-   [ ] MLflow model/artifact evidence.
+-   [ ] Airflow DAG.
+-   [ ] At least one successful Airflow execution.
+-   [ ] Working inference/prediction path.
+-   [ ] API/deployment where appropriate.
+-   [ ] Prometheus/Grafana or relevant operational monitoring evidence.
+-   [ ] Git/GitHub repository.
+-   [ ] Meaningful Git commits.
+-   [ ] README containing setup, architecture, execution steps and
+    results.
+-   [ ] Final PPT.
+-   [ ] Individual contribution sheet.
+
+------------------------------------------------------------------------
+
+## 7. Recommended Repository Structure
+
+Adapt this structure to the assigned project rather than creating
+unnecessary files:
+
+``` text
+project-root/
+│
+├── README.md
+├── QWEN.md
+├── requirements.txt
+├── .gitignore
+├── docker-compose.yml
+├── Dockerfile
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── features/
+│
+├── notebooks/
+│   ├── data_analysis.ipynb
+│   ├── preprocessing.ipynb
+│   └── model_training.ipynb
+│
+├── src/
+│   ├── ingestion/
+│   ├── validation/
+│   ├── transformation/
+│   ├── features/
+│   ├── training/
+│   └── inference/
+│
+├── airflow/
+│   └── dags/
+│       └── project_pipeline.py
+│
+├── mlflow/
+│   └── ...
+│
+├── api/
+│   └── ...
+│
+├── monitoring/
+│   ├── prometheus/
+│   └── grafana/
+│
+├── models/
+│   └── ...
+│
+├── tests/
+│   └── ...
+│
+└── docs/
+    ├── architecture/
+    ├── presentation/
+    └── contribution/
+```
+
+Only create directories that are actually needed by the implementation.
+
+------------------------------------------------------------------------
+
+## 8. One-Week Development Plan
+
+Follow the capstone guide's intended sequence.
+
+### Day 1 --- Problem + Architecture
+
+Complete: - Problem definition. - Business objective. - ML target. -
+Dataset selection. - Initial feature understanding. - System
+architecture. - Team roles.
+
+Expected output:
+
+``` text
+Problem definition
+Architecture
+Roles
+```
+
+### Day 2 --- Data Ingestion + Data Quality
+
+Complete: - Data ingestion. - Data validation. - Missing-value checks. -
+Duplicate checks. - Data-type checks. - Range/consistency checks where
+relevant. - Initial cleaning.
+
+Expected output:
+
+``` text
+Ingestion code
+Validation checks
+Cleaned data
+```
+
+### Day 3 --- Transformation + Feature Engineering
+
+Complete: - Data transformation. - Encoding where required. - Scaling
+where required. - Feature creation. - Feature selection where
+appropriate.
+
+Expected output:
+
+``` text
+Prepared dataset/features
+```
+
+### Day 4 --- Model Training + MLflow
+
+Complete: - Train an appropriate model. - Evaluate the model. - Record
+parameters. - Record metrics. - Save model/artifacts. - Track the
+experiment in MLflow.
+
+Expected output:
+
+``` text
+Trained model
+Metrics
+MLflow run
+Model/artifact evidence
+```
+
+### Day 5 --- Airflow + Inference/Deployment
+
+Complete: - Create the Airflow DAG. - Define task dependencies. -
+Execute the DAG successfully. - Connect the relevant pipeline stages. -
+Implement the prediction/inference path. - Add API/deployment if
+appropriate.
+
+Expected output:
+
+``` text
+Airflow DAG
+Successful DAG run
+Prediction path
+```
+
+### Day 6 --- Monitoring + End-to-End Integration
+
+Complete: - Integrate the pipeline. - Expose relevant
+application/project metrics. - Configure Prometheus. - Create meaningful
+Grafana panels. - Verify the complete workflow.
+
+Expected output:
+
+``` text
+Monitoring evidence
+Integrated workflow
+```
+
+### Day 7 --- Testing + Documentation + Presentation
+
+Complete: - Test the complete project. - Fix remaining issues. - Update
+README. - Prepare architecture diagram. - Prepare final PPT. - Prepare
+individual contribution sheet. - Practice technical Q&A. - Verify that
+every claimed feature can be demonstrated.
+
+Expected output:
+
+``` text
+Final repository
+Documentation
+PPT
+Contribution sheet
+Working demo
+```
+
+------------------------------------------------------------------------
+
+## 9. DataOps Guidelines
+
+The DataOps portion should clearly show how data moves through the
+system.
+
+### Data ingestion
+
+Document: - Data source. - Input format. - Ingestion method. -
+Destination/storage. - Relevant error handling.
+
+### Data validation
+
+Where applicable, check: - Missing values. - Duplicate records. -
+Invalid data types. - Unexpected categories. - Invalid ranges. -
+Inconsistent values. - Target-label issues. - Other project-specific
+quality problems.
+
+Do not add arbitrary checks simply to increase complexity. Checks should
+be relevant to the dataset and business problem.
+
+### Transformation
+
+Document: - Cleaning operations. - Encoding. - Scaling. - Aggregation. -
+Feature creation. - Feature selection.
+
+Every important transformation should have a clear reason.
+
+------------------------------------------------------------------------
+
+## 10. MLOps Guidelines
+
+### Model training
+
+Use at least one appropriate ML model.
+
+Record: - Model type. - Training data. - Validation/test strategy. -
+Hyperparameters. - Evaluation metrics. - Final model artifact.
+
+### Metrics
+
+Select metrics appropriate to the ML problem.
+
+For classification, potentially relevant metrics include: - Accuracy. -
+Precision. - Recall. - F1-score. - ROC-AUC.
+
+For regression, potentially relevant metrics include: - MAE. - MSE. -
+RMSE. - R².
+
+For forecasting, use metrics appropriate to the forecasting setup.
+
+Do not select metrics without understanding what they measure.
+
+### MLflow
+
+The MLflow implementation should provide evidence of: -
+Experiment/run. - Parameters. - Metrics. - Model/artifacts.
+
+The README should explain how to reproduce or inspect the MLflow run.
+
+------------------------------------------------------------------------
+
+## 11. Airflow Guidelines
+
+The Airflow DAG should represent the actual project workflow.
+
+A typical dependency structure may look like:
+
+``` text
+ingest
+  ↓
+validate
+  ↓
+transform
+  ↓
+feature_engineering
+  ↓
+train
+  ↓
+evaluate
+  ↓
+register/save_model
+  ↓
+inference
+```
+
+The exact DAG should be adapted to the assigned project.
+
+Be prepared to explain: - Every task. - Task order. - Dependencies. -
+Inputs and outputs. - Failure behavior. - How the DAG was executed
+successfully.
+
+Do not create an Airflow DAG that is disconnected from the actual
+implementation merely for demonstration.
+
+------------------------------------------------------------------------
+
+## 12. Inference / Prediction Path
+
+The final project must have a working path from input to prediction.
+
+Conceptually:
+
+``` text
+User / Application Input
+        ↓
+Input Validation
+        ↓
+Preprocessing / Feature Transformation
+        ↓
+Trained Model
+        ↓
+Prediction
+        ↓
+Response / Result
+```
+
+If an API is used, document: - Endpoint. - Input format. - Validation. -
+Model loading. - Prediction logic. - Output format. - Error handling.
+
+The prediction path must use the actual trained model and compatible
+preprocessing.
+
+------------------------------------------------------------------------
+
+## 13. Monitoring
+
+Prometheus and Grafana should provide meaningful operational/application
+monitoring.
+
+Potential metrics may include: - Request count. - Prediction count. -
+Prediction latency. - Error count. - Application health. - Pipeline
+execution status. - Other metrics relevant to the project.
+
+Grafana should contain meaningful panels rather than screenshots or
+decorative charts.
+
+Be able to explain: - What each metric represents. - Why it is being
+monitored. - Where the metric comes from. - What the dashboard
+indicates.
+
+------------------------------------------------------------------------
+
+## 14. Docker
+
+Use Docker where required by the project/environment.
+
+Containerization should help provide a reproducible environment for
+relevant services.
+
+If Docker Compose is used, clearly identify the services and their
+relationships.
+
+Do not add containers that are unnecessary for the actual project.
+
+------------------------------------------------------------------------
+
+## 15. Git/GitHub Rules
+
+Use Git/GitHub throughout development.
+
+Commits should be meaningful and reflect actual progress.
+
+Prefer commits such as:
+
+``` text
+feat: add data ingestion pipeline
+feat: add data validation checks
+feat: add feature engineering
+feat: train baseline model
+feat: integrate MLflow tracking
+feat: add Airflow DAG
+feat: add inference API
+feat: add Prometheus metrics
+feat: add Grafana dashboard
+docs: update README
+fix: resolve inference preprocessing issue
+```
+
+Avoid using a single final commit for the entire project.
+
+Do not commit: - Credentials. - Passwords. - API keys. - Private URLs
+when inappropriate. - Large unnecessary datasets. - Local environment
+files containing secrets.
+
+Use `.gitignore` appropriately.
+
+------------------------------------------------------------------------
+
+## 16. README Requirements
+
+The README should contain at minimum:
+
+### Project Overview
+
+-   Project title.
+-   Problem statement.
+-   Business objective.
+-   ML target.
+
+### Dataset
+
+-   Dataset source.
+-   Dataset description.
+-   Important features.
+-   Target variable.
+
+### Architecture
+
+-   End-to-end architecture diagram.
+-   Explanation of each major component.
+
+### DataOps
+
+-   Ingestion.
+-   Validation.
+-   Transformation.
+-   Feature engineering.
+
+### MLOps
+
+-   Model.
+-   Training.
+-   Metrics.
+-   MLflow.
+
+### Airflow
+
+-   DAG description.
+-   Tasks.
+-   Dependencies.
+-   Execution instructions.
+
+### Inference
+
+-   Prediction workflow.
+-   API/deployment instructions where applicable.
+
+### Monitoring
+
+-   Prometheus.
+-   Grafana.
+-   Important metrics/panels.
+
+### Setup
+
+-   Requirements.
+-   Environment setup.
+-   Docker commands if applicable.
+-   Service startup instructions.
+
+### Execution
+
+-   How to run the pipeline.
+-   How to train the model.
+-   How to run inference.
+-   How to access monitoring.
+
+### Results
+
+-   Actual model metrics.
+-   Relevant screenshots/evidence.
+-   Important observations.
+
+### Reproducibility
+
+-   Git repository.
+-   Configuration.
+-   Required dependencies.
+-   Execution sequence.
+
+------------------------------------------------------------------------
+
+## 17. Final Presentation
+
+Maximum duration: **10 minutes**.
+
+Recommended structure from the guide:
+
+  -----------------------------------------------------------------------
+  Time                                Content
+  ----------------------------------- -----------------------------------
+  1 min                               Business problem + ML objective
+
+  2 min                               Architecture + end-to-end flow
+
+  2 min                               DataOps: ingestion, quality,
+                                      transformation and Airflow
+
+  2 min                               MLOps: model, metrics, MLflow and
+                                      inference
+
+  1 min                               Monitoring: Prometheus/Grafana or
+                                      relevant monitoring evidence
+
+  2 min                               Results + individual
+                                      contributions + questions
+  -----------------------------------------------------------------------
+
+All 5 students must participate.
+
+The trainer may ask any student to: - Open code. - Explain their
+contribution. - Explain the project workflow. - Answer technical
+questions.
+
+Demonstrate actual implementation, not only PPT screenshots.
+
+------------------------------------------------------------------------
+
+## 18. Evaluation Criteria
+
+The capstone is evaluated out of 100 marks:
+
+  Evaluation Area                          Marks
+  ------------------------------------ ---------
+  Business problem & objective                10
+  Architecture & design                       10
+  DataOps implementation                      15
+  MLOps implementation                        15
+  End-to-end integration                      10
+  Git/GitHub & reproducibility                 5
+  Documentation / README                       5
+  Final demo / presentation                   10
+  Individual contribution                     10
+  Individual technical understanding          10
+  **Total**                              **100**
+
+The implementation should therefore be built with both **technical
+completeness** and **individual explainability** in mind.
+
+------------------------------------------------------------------------
+
+## 19. Technical Questions to Prepare For
+
+Every team member should be able to answer:
+
+1.  Why did your group choose this problem and target?
+2.  Where did the dataset come from?
+3.  What data-quality issues did you identify?
+4.  How did you handle those issues?
+5.  What transformations did you perform?
+6.  What features did you create?
+7.  Why did you create those features?
+8.  Which model did you use?
+9.  Why did you use that model?
+10. Which metrics did you use?
+11. What do those metrics mean?
+12. How did you track the experiment in MLflow?
+13. What does your Airflow DAG do?
+14. What are the Airflow tasks and dependencies?
+15. What happens if an Airflow task fails?
+16. How does the prediction/inference path work?
+17. What does the monitoring dashboard show?
+18. What code did you personally implement?
+19. What technical problem did you face?
+20. How did you solve it?
+
+Answers should be based on the actual implementation in the repository.
+
+------------------------------------------------------------------------
+
+## 20. Final Submission Checklist
+
+Before final evaluation, verify:
+
+``` text
+[ ] Problem statement
+[ ] Business objective
+[ ] ML target
+[ ] Dataset description
+[ ] Important features
+[ ] Architecture diagram
+[ ] Data ingestion
+[ ] Data-quality / validation
+[ ] Transformation
+[ ] Feature engineering
+[ ] Model
+[ ] Actual model results and metrics
+[ ] MLflow run
+[ ] MLflow parameters
+[ ] MLflow metrics
+[ ] MLflow model/artifact evidence
+[ ] Airflow DAG
+[ ] Successful Airflow execution
+[ ] Inference / prediction path
+[ ] Prometheus/Grafana monitoring evidence
+[ ] GitHub repository
+[ ] Meaningful Git commits
+[ ] README
+[ ] Final PPT
+[ ] Individual contribution sheet
+[ ] All team members prepared for technical Q&A
+```
+
+------------------------------------------------------------------------
+
+## 21. Team Rules
+
+1.  Do not change the assigned project without trainer approval.
+2.  Do not share the group's Jupyter URL or credentials with other
+    groups.
+3.  Keep code, notebooks, configuration and documentation organized in
+    Git/GitHub.
+4.  Do not claim a feature or implementation that cannot be
+    demonstrated.
+5.  Each student must understand their own contribution and the overall
+    project flow.
+6.  Use the provided practical environment responsibly.
+7.  Avoid changing shared infrastructure unnecessarily.
+8.  Be ready to demonstrate the working project, not only the PPT.
+
+------------------------------------------------------------------------
+
+## 22. Important Dates
+
+According to the capstone guide:
+
+  -----------------------------------------------------------------------
+  Activity                            Date / Time
+  ----------------------------------- -----------------------------------
+  Capstone Kickoff                    17 September 2026
+
+  Progress / Mentoring Check          Saturday, 26 September 2026 ---
+                                      9:00 AM to 10:00 AM
+
+  Final Submission & Presentation     Thursday, 1 October 2026 --- 2
+                                      hours
+  -----------------------------------------------------------------------
+
+The final evaluation includes: - Working project demonstration. -
+Presentation. - Evaluation. - Technical Q&A.
+
+------------------------------------------------------------------------
+
+## 23. Instructions for Qwen / AI Coding Assistance
+
+When working on this repository:
+
+### Understand before modifying
+
+Before making changes: 1. Inspect the existing repository structure. 2.
+Identify the current implementation. 3. Read relevant configuration
+files. 4. Understand the data flow. 5. Check existing dependencies. 6.
+Avoid replacing working components unnecessarily.
+
+### Preserve the project architecture
+
+Do not introduce unnecessary technologies or services.
+
+Prefer the technologies specified by the capstone environment: -
+Python - Jupyter - Apache Airflow - MLflow - Docker - Prometheus -
+Grafana - Git/GitHub
+
+Use additional technologies only when they serve a clear project
+requirement.
+
+### Do not fabricate evidence
+
+Never invent: - Model metrics. - MLflow runs. - Airflow execution
+results. - Monitoring values. - Dataset statistics. - Successful
+deployment results. - Screenshots. - Test results.
+
+If something has not been executed or verified, state that it needs to
+be tested.
+
+### Keep implementations explainable
+
+Prefer clear, beginner-friendly code over unnecessary abstraction.
+
+Important logic should be easy for a student to explain during the final
+Q&A.
+
+### Preserve reproducibility
+
+When changing the project: - Update requirements when dependencies
+change. - Keep configuration documented. - Keep paths portable where
+possible. - Avoid hard-coded personal machine paths. - Keep secrets
+outside source control. - Update README instructions when execution
+changes.
+
+### Test changes
+
+After modifying code: 1. Check syntax. 2. Run the relevant component
+where possible. 3. Verify outputs. 4. Check integration with dependent
+components. 5. Report any untested portion clearly.
+
+### Keep student ownership visible
+
+When implementing a feature, make it possible for the student to
+explain: - What was changed. - Why it was changed. - How it works. - How
+it was tested. - What output it produces.
+
+------------------------------------------------------------------------
+
+## 24. Working Principle
+
+The goal is not to build a large or unnecessarily complicated system.
+
+The goal is to build a **working, reproducible, explainable end-to-end
+DataOps + MLOps project** that satisfies the capstone requirements and
+can be demonstrated during the final evaluation.
+
+When choosing between two valid implementations, prefer the one that is:
+
+1.  Correct.
+2.  Demonstrable.
+3.  Reproducible.
+4.  Explainable.
+5.  Consistent with the provided capstone environment.
+6.  Appropriate for the assigned problem.
+
+------------------------------------------------------------------------
+
+## 25. Primary Reference
+
+**HCL GUVI × JAIN UNIVERSITY\
+DATAOPS & MLOPS CAPSTONE PROJECT\
+Student Guide • 12 Groups • One-Week Project Development & Final
+Evaluation**
+
+This `QWEN.md` is derived from the provided student guide and is
+intended to give Qwen repository-level context while assisting with
+implementation.
